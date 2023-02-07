@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilo.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <title>Calculadora</title>
+</head>
+
+<body>
+    <section>
+        <div class="calculadora">
+            <div class="calculadora-resultado">
+                <input type="text" id="numero" value="0">
+                <span id="operacao"></span>
+                
+
+            </div>
+            <div class="calculadora-linha-1">
+                <button onclick="limparCaractere()"> <i class="bi bi-arrow-left"></i>
+                </button>
+                <button onclick="limpar()">CE</button>
+                <button id="btn-onoff">Criado por: Arthur Henrique</button>
+
+            </div>
+            <div class="calculadora-linha-2">
+                <button onclick="atualizaNumero(7)">7</button>
+                <button onclick="atualizaNumero(8)">8</button>
+                <button onclick="atualizaNumero(9)">9</button>
+                <button onclick="atualizaOperacao('/')">/</button>
+            </div> 
+            <div class="calculadora-linha-3">
+                <button onclick="atualizaNumero(4)">4</button>
+                <button onclick="atualizaNumero(5)">5</button>
+                <button onclick="atualizaNumero(6)">6</button>
+                <button onclick="atualizaOperacao('x')">X</button>
+            </div>
+            <div class="calculadora-linha-4">
+                <button onclick="atualizaNumero(1)">1</button>
+                <button onclick="atualizaNumero(2)">2</button>
+                <button onclick="atualizaNumero(3)">3</button>
+                <button onclick="atualizaOperacao('-')">-</button>
+            </div>
+            <div class="calculadora-linha-5">
+                <button onclick="atualizaNumero(0)">0</button>
+                <button>.</button>
+                <button onclick="realizarConta()">=</button>
+                <button onclick="atualizaOperacao('+')">+</button>
+            </div>
+        </div>
+    </section>
+
+</body>
+<script src="script.js"></script>
+
+</html>

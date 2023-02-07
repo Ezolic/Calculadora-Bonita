@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
+* {
+    padding: 0;
+
+}
+
+body {
+    background-image: linear-gradient(0deg, #D9AFD9 0%, #97D9E1 100%);
+    overflow: hidden;
+}
+
+section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: visible;
+}
+
+.calculadora {
+    width: 400px;
+    padding: 40px;
+    background-color: #FFDEE9;
+    box-shadow: 11px 11px 4px -2px rgba(0, 0, 0, 0.38);
+}
+
+button {
+    border: 2px solid rgba(0, 0, 0, 1);
+    border-radius: 5px;
+    cursor: pointer;
+    color: #000;
+    background-color: #fff;
+    padding: 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    box-shadow: 11px 11px 4px -2px rgba(0, 0, 0, 0.38);
+
+}
+
+.calculadora-linha-1,
+.calculadora-linha-2,
+.calculadora-linha-3,
+.calculadora-linha-4,
+.calculadora-linha-5 {
+    display: grid;
+    grid-template-columns: 80px 80px 80px 80px;
+    padding: 10px;
+    gap: 20px;
+}
+
+
+.calculadora-linha-1 #btn-onoff {
+    width: 180px;
+}
+
+button:active {
+    background-color: #000;
+    color: #fff;
+
+}
+
+input {
+    background-color: rgba(1, 6, 6, 0.313);
+    padding: 10px;
+    overflow: hidden;
+    border: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 30px;
+    pointer-events: none;
+
+}
+
+.calculadora-resultado {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+span {
+    font-size: 30px;
+
+}
+
+i {
+    font-weight: bold;
+}
+
+button:hover {
+    transform: translate(0px, -5px);
+
+
+}
+
+
+
+@media screen and (max-width: 490px) {
+
+    section {
+        display: block;
+        margin-left: -15px;
+        margin-top: 50%;
+    }
+
+    .calculadora-linha-1,
+    .calculadora-linha-2,
+    .calculadora-linha-3,
+    .calculadora-linha-4,
+    .calculadora-linha-5 {
+        display: grid;
+        grid-template-columns: 22% 22% 22% 22%;
+    } 
+
+    .calculadora-linha-1 #btn-onoff {
+        width: 185px;
+    }
+
+
+
+
+}
