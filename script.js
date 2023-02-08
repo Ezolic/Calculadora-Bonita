@@ -27,7 +27,12 @@ function Calculo(enunciado) {
       }
     }
   }
-  ordem(numeros, operacoes)
+  ordemCorreta(numeros, operacoes)
+
+  if(numeros.length == 1) {
+    valor1 = numeros
+    return valor1
+  }
 
   let tamanhooperoes = operacoes.length
   for (let i = 0, a = 0, b = 1; i < tamanhooperoes; i++, a++, b++) {
@@ -113,11 +118,14 @@ function Calculo(enunciado) {
 
 
 
-  function ordem(numeros, operacoes) {
+  function ordemCorreta(numeros, operacoes) {
 
     operadores = operacoes.filter(word => word == 'x' || word == '/');
 
-    console.log(operadores.length)
+    if (operadores.length < 1) {
+      return numeros, operacoes
+    }
+
 
 
     for (let i = 0; i < operadores.length; i++) {
