@@ -1,15 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
-
-* {
-    padding: 0;
-
-}
-
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@300&display=swap');
 body {
     background-image: linear-gradient(0deg, #D9AFD9 0%, #97D9E1 100%);
     overflow: hidden;
 }
-
 section {
     display: flex;
     align-items: center;
@@ -17,14 +10,17 @@ section {
     height: 100vh;
     overflow: visible;
 }
-
 .calculadora {
+    border-radius: 5%;
+    outline: 3px solid black;
     width: 400px;
     padding: 40px;
     background-color: #FFDEE9;
-    box-shadow: 11px 11px 4px -2px rgba(0, 0, 0, 0.38);
+    -webkit-box-shadow: 9px 9px 0px 3px rgba(0,0,0,0.75);
+    -moz-box-shadow: 9px 9px 0px 3px rgba(0,0,0,0.75);
+    box-shadow: 9px 9px 0px 3px rgba(0,0,0,0.75);
+    
 }
-
 button {
     border: 2px solid rgba(0, 0, 0, 1);
     border-radius: 5px;
@@ -32,12 +28,9 @@ button {
     color: #000;
     background-color: #fff;
     padding: 20px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Dosis', sans-serif;
     font-weight: bold;
-    box-shadow: 11px 11px 4px -2px rgba(0, 0, 0, 0.38);
-
 }
-
 .calculadora-linha-1,
 .calculadora-linha-2,
 .calculadora-linha-3,
@@ -48,62 +41,71 @@ button {
     padding: 10px;
     gap: 20px;
 }
-
-
-.calculadora-linha-1 #btn-onoff {
-    width: 180px;
-}
-
+button > a > i {
+    font-size: 25px;
+    color: #000;
+}   
 button:active {
     background-color: #000;
     color: #fff;
-
 }
-
 input {
-    background-color: rgba(1, 6, 6, 0.313);
+    background-color: rgba(255, 255, 255, 0.486);
+    outline: 2px solid #0000009d;
     padding: 10px;
     overflow: hidden;
     border: none;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Dosis', sans-serif;
     font-weight: bold;
     font-size: 30px;
     pointer-events: none;
-
+    width: 100%;
+    letter-spacing: .2rem;
+    border-radius: 5px;
 }
-
 .calculadora-resultado {
     display: flex;
     align-items: center;
     justify-content: center;
-
 }
 
 span {
     font-size: 30px;
-
 }
 
 i {
     font-weight: bold;
 }
-
-button:hover {
-    transform: translate(0px, -5px);
-
-
+.aviso {
+    background-color: #FFDEE9;
+    -webkit-box-shadow: 9px 9px 0px 3px rgba(0,0,0,0.75);
+    -moz-box-shadow: 9px 9px 0px 3px rgba(0,0,0,0.75);
+    box-shadow: 9px 9px 0px 3px rgba(0,0,0,0.75);
+    outline: 3px solid black;
+    padding: 10px;
+    border-radius: 10px;
+    font-weight: bold;
+    font-family: 'Dosis', sans-serif;
+    visibility: hidden;
+    width: 0;
+    height: 25px;
+    word-wrap: break-word;
+    overflow: hidden;
+    text-align: center;
+    transition: all 0.5s;
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
-
-
-
-@media screen and (max-width: 490px) {
-
-    section {
-        display: block;
-        margin-left: -15px;
-        margin-top: 50%;
+.alerta {
+    visibility: visible;
+    width: 300px;
+}
+@media screen and (max-width: 525px) {
+    .calculadora {
+        width: 70%;
     }
-
     .calculadora-linha-1,
     .calculadora-linha-2,
     .calculadora-linha-3,
@@ -111,13 +113,5 @@ button:hover {
     .calculadora-linha-5 {
         display: grid;
         grid-template-columns: 22% 22% 22% 22%;
-    } 
-
-    .calculadora-linha-1 #btn-onoff {
-        width: 185px;
     }
-
-
-
-
-}
+} 

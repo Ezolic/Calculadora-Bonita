@@ -1,282 +1,180 @@
-function Calculo(enunciado) {
+aviso = document.getElementById('aviso')
 
+function Calculo(enunciado) {
+    
     Organizar(enunciado)
 
-    possuimultiplicacao = false
-    possuidivisao = false
+    for (let i = 0; i < operacoes.length; i++) {
+        switch (operacoes[i]) {
+            case "x":
+                v1 = operacoes.indexOf(operacoes[i], i)
+                valor1 = Number(numeros[operacoes.indexOf(operacoes[i], i)])
+                valor2 = Number(numeros[operacoes.indexOf(operacoes[i], i) + 1])
+                resultado = valor1 * valor2
 
+                numeros.splice(v1, 2, resultado);
+                operacoes.splice(v1, 1);
 
-    multiplicacao = operacoes.find((element) => element == "x");
-    divisao = operacoes.find((element) => element == "/");
+                i = i - 1
 
-    if (multiplicacao == "x")
-        possuimultiplicacao = true
-    else if (divisao == "/")
-        possuidivisao = true
-    else {
-        possuimultiplicacao = false
-        possuidivisao = false
-    }
+                break;
 
-    while (possuimultiplicacao || possuidivisao) {
-        for (let i = 0; i < operacoes.length; i++) {
-            switch (operacoes[i]) {
-                case "x":
-                    v1 = operacoes.indexOf(operacoes[i], i)
+            case "/":
+                v1 = operacoes.indexOf(operacoes[i], i)
+                valor1 = Number(numeros[operacoes.indexOf(operacoes[i], i)])
+                valor2 = Number(numeros[operacoes.indexOf(operacoes[i], i) + 1])
 
-                    valor1 = numeros[operacoes.indexOf(operacoes[i], i)]
-                    valor2 = numeros[operacoes.indexOf(operacoes[i], i) + 1]
+                resultado = valor1 / valor2
 
-                    resultado = valor1 * valor2
+                numeros.splice(v1, 2, resultado);
+                operacoes.splice(v1, 1);
 
-                    numeros.splice(v1, 2, resultado);
-                    operacoes.splice(v1, 1);
+                i = i - 1
 
-                    break;
-
-                case "/":
-                    v1 = operacoes.indexOf(operacoes[i], i)
-
-                    valor1 = numeros[operacoes.indexOf(operacoes[i], i)]
-                    valor2 = numeros[operacoes.indexOf(operacoes[i], i) + 1]
-
-                    resultado = valor1 / valor2
-
-
-                    numeros.splice(v1, 2, resultado);
-                    operacoes.splice(v1, 1);
-                    break;
-                default:
-
-                    break;
-            }
-
+                break;
+            default:
+                break;
         }
-
-        multiplicacao = operacoes.find((element) => element == "x");
-        divisao = operacoes.find((element) => element == "/");
-
-        if (multiplicacao == "x")
-            possuimultiplicacao = true
-        else if (divisao == "/")
-            possuidivisao = true
-        else {
-            possuimultiplicacao = false
-            possuidivisao = false
-        }
-
     }
+    for (let i = 0; i < operacoes.length; i++) {
+        switch (operacoes[i]) {
+            case "+":
+                v1 = operacoes.indexOf(operacoes[i], i)
 
-    possuisoma = false
-    possuisubtracao = false
+                valor1 = Number(numeros[operacoes.indexOf(operacoes[i], i)])
+                valor2 = Number(numeros[operacoes.indexOf(operacoes[i], i) + 1])
 
-    soma = operacoes.find((element) => element == "+");
-    subtracao = operacoes.find((element) => element == "-");
+                resultado = valor1 + valor2
 
-    if (soma == "+")
-        possuisoma = true
-    else if (subtracao == "-")
-        possuisubtracao = true
-    else {
-        possuisoma = false
-        possuisubtracao = false
-    }
+                numeros.splice(v1, 2, resultado);
+                operacoes.splice(v1, 1);
 
-    while (possuisoma || possuisubtracao) {
+                i = i - 1
+                break;
 
-        for (let i = 0; i < operacoes.length; i++) {
-            switch (operacoes[i]) {
-                case "+":
-                    v1 = operacoes.indexOf(operacoes[i], i)
+            case "-":
+                v1 = operacoes.indexOf(operacoes[i], i)
 
-                    valor1 = numeros[operacoes.indexOf(operacoes[i], i)]
-                    valor2 = numeros[operacoes.indexOf(operacoes[i], i) + 1]
+                valor1 = Number(numeros[operacoes.indexOf(operacoes[i], i)])
+                valor2 = Number(numeros[operacoes.indexOf(operacoes[i], i) + 1])
+                resultado = valor1 - valor2
 
-                    resultado = parseFloat(valor1) + parseFloat(valor2)
+                numeros.splice(v1, 2, resultado);
+                operacoes.splice(v1, 1);
 
-                    numeros.splice(v1, 2, resultado);
-                    operacoes.splice(v1, 1);
+                i = i - 1
+                break;
+            default:
 
-                    console.log(numeros)
-                    console.log(operacoes)
-
-                    break;
-
-                case "-":
-                    v1 = operacoes.indexOf(operacoes[i], i)
-
-                    valor1 = numeros[operacoes.indexOf(operacoes[i], i)]
-                    valor2 = numeros[operacoes.indexOf(operacoes[i], i) + 1]
-
-                    resultado = parseFloat(valor1) - parseFloat(valor2)
-
-                    numeros.splice(v1, 2, resultado);
-                    operacoes.splice(v1, 1);
-                    
-                    console.log(numeros)
-                    console.log(operacoes)
-
-                    break;
-                default:
-
-                    break;
-            }
-
+                break;
         }
-        soma = operacoes.find((element) => element == "+");
-        subtracao = operacoes.find((element) => element == "-");
-
-        if (soma == "+")
-            possuisoma = true
-        else if (subtracao == "-")
-            possuisubtracao = true
-        else {
-            possuisoma = false
-            possuisubtracao = false
-        }
-
     }
-
-    return resultado;
-
 }
+
 function Organizar(enunciado) {
 
-    valor1 = 0
-    valor2 = 0
+    valorInicial = ""
+    valorFinal = ""
     numeros = []
     operacoes = []
-    caractereantigo = ""
-    caracterenovo = ""
-    let tamanho = enunciado.length
-    for (let i = 0, a = 1; i < tamanho; i++, a++) {
-        caractere = enunciado.slice(i, a)
-        if (isNaN(caractere)) {
-            //letra
-            operacoes.push(caractere);
 
-            numeros.push(caracterenovo);
-            caracterenovo = "";
-        } else {
-            //numero
-            caractereantigo = caractere
-            caracterenovo = caracterenovo + caractereantigo
-            if (a == tamanho) {
-                ultimocaractere = caracterenovo
-                numeros.push(ultimocaractere);
+    for (let i = 0; i < enunciado.length; i++) {
+
+        if (isNaN(enunciado.slice(i, i + 1))) {
+
+            if (enunciado.slice(i, i + 1) == ".") {
+                valorInicial = enunciado.slice(i, i + 1)
+                valorFinal += valorInicial
+            } else {
+                operacoes.push(enunciado.slice(i, i + 1));
+                numeros.push(valorFinal);
+                valorFinal = "";
+            }
+        } else if (!isNaN(enunciado.slice(i, i + 1))) {
+            valorInicial = enunciado.slice(i, i + 1)
+            valorFinal += valorInicial
+            
+            if (i + 1 == enunciado.length) {
+                numeros.push(valorFinal)
             }
         }
     }
-    return numeros, operacoes
 }
 
 
-function atualizaNumero(num) {
-    valorantigo = document.getElementById("numero").value;
+function atualizaNumero(numero) {
+    enunciado = document.getElementById("numero").value;
 
-    if (valorantigo == 0) {
-        document.getElementById("numero").value = num;
+    if (enunciado == 0) {
+        document.getElementById("numero").value = numero;
+
     } else {
-        valornovo = valorantigo + num;
-        document.getElementById("numero").value = valornovo;
+        numeroTeste = enunciado.slice(enunciado.length - 1, enunciado.length)
+        operacao = enunciado.slice(enunciado.length - 2, enunciado.length - 1)
+
+        if ((operacao == "+" || operacao == "-" || operacao == "x" || operacao == "/") && numeroTeste == "0") {
+            MostraAviso("Não é possivel adicionar outro numero no calculo")
+
+        } else {
+            valor = enunciado + numero;
+            document.getElementById("numero").value = valor;
+        }
     }
 }
 
 function limpar() {
+    Calculo(0);
     document.getElementById("numero").value = "0";
 }
 
 function limparCaractere() {
-    valor = document.getElementById("numero").value;
+    valor = document.getElementById("numero").value
 
-    if (valor.length == 1) {
+    if (valor.length == 1 && Number(valor) == 0)
+        MostraAviso("Não é possivel apagar o digito restante.")
+    else if (valor.length == 1)
         document.getElementById("numero").value = "0";
-    } else {
-        valornovo = valor.length - 1;
-
-        document.getElementById("numero").value = valor.slice(0, valornovo);
-
-    }
+    else
+        document.getElementById("numero").value = valor.slice(0, valor.length - 1);
 }
 
 function atualizaOperacao(operacao) {
 
     enunciado = document.getElementById("numero").value;
-
     caractere = enunciado.slice(enunciado.length - 1, enunciado.length)
 
-    if (isNaN(caractere) || (enunciado.length == 1 && caractere == 0)) {
-        return false;
-    } else {
+    if (isNaN(caractere)) 
+        MostraAviso("Não é possivel adicionar outra operação.")
+    else {
         enunciado = enunciado + operacao;
         document.getElementById("numero").value = enunciado;
-
     }
 }
 
-function realizarConta() {
+function realizaConta() {
 
     enunciado = document.getElementById("numero").value;
 
-    if (isNaN(enunciado.slice(enunciado.length - 1, enunciado.length))) {
-        return false;
-    } else {
-        Calculo(enunciado);
-
-        document.getElementById("numero").value = resultado;
+    if (isNaN(enunciado.slice(enunciado.length - 1, enunciado.length)))
+        MostraAviso("Digite outro numero para realizar o calculo.")
+    else if (enunciado.length == 1)
+        MostraAviso("Digite o resto da operação para realizar o calculo.")
+    else {
+        Calculo(enunciado)
+        document.getElementById("numero").value = resultado
+        resultado = 0
     }
 }
 
+function MostraAviso(texto) {
+    setTimeout(function () {
+        aviso.classList.remove("alerta");
+        document.getElementById("texto-aviso").innerHTML = ""
+    }, 3000)
 
+    setTimeout(function () {
+        document.getElementById("texto-aviso").innerHTML = texto
+    }, 400)
 
-function ordemCorreta(numeros, operacoes) {
-
-    operadores = operacoes.filter(word => word == 'x' || word == '/');
-
-    if (operadores.length < 1) {
-        return numeros, operacoes
-    }
-
-    for (let i = 0; i < operadores.length; i++) {
-
-        if (numeros.length == 1) {
-            return numeros, operacoes
-        }
-
-        if (operacoes.filter(x => x == 'x').length) {
-            posicao = operacoes.indexOf('x')
-            if (posicao > 0) {
-                num = numeros[posicao] * numeros[posicao + 1];
-
-                operacoes.splice(posicao, 1)
-
-                numeros.splice(posicao, posicao + 1, num);
-            } else {
-                num = numeros[posicao] * numeros[posicao + 1];
-
-                operacoes.splice(posicao, 1)
-
-                numeros.splice(posicao, posicao + 2, num);
-
-            }
-
-        } else if (operacoes.filter(x => x == '/').length) {
-            posicao = operacoes.indexOf('/')
-
-            if (posicao > 0) {
-                num = numeros[posicao] / numeros[posicao + 1];
-
-                operacoes.splice(posicao, 1)
-
-                numeros.splice(posicao, posicao + 1, num);
-            } else {
-                num = numeros[posicao] / numeros[posicao + 1];
-                operacoes.splice(posicao, 1)
-                numeros.splice(posicao, posicao + 2, num);
-            }
-
-        } else {
-            return numeros, operacoes
-        }
-    }
+    aviso.classList.add("alerta");
 }
